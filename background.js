@@ -22,14 +22,48 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
-// Handle context menu clicks
+// Handle context menu clicks with better error handling
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   if (info.menuItemId === "explainSelection" && info.selectionText) {
-    // Send message to content script to open AI search bar with the selected text
-    chrome.tabs.sendMessage(tab.id, {
-      action: 'explainSelection',
-      selection: info.selectionText
-    });
+    console.log('Context menu: Explain with AI clicked', info.selectionText.substring(0, 30) + '...');
+    
+    // Send message to content script with retry mechanism
+    function sendExplainMessage(retryCount = 0) {
+      // Check if tab still exists before sending message
+      chrome.tabs.get(tab.id, function(currentTab) {
+        if (chrome.runtime.lastError) {
+          console.error("Tab no longer exists:", chrome.runtime.lastError);
+          return;
+        }
+        
+        chrome.tabs.sendMessage(tab.id, {
+          action: 'explainSelection',
+          selection: info.selectionText
+        }, response => {
+          // Check if there was an error communicating with the content script
+          if (chrome.runtime.lastError) {
+            console.error('Error sending message:', chrome.runtime.lastError);
+            
+            // If we haven't retried too many times, try injecting the content script and retrying
+            if (retryCount < 2) {
+              console.log('Retrying after injecting content script...');
+              chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                files: ['js/content.js']
+              }, () => {
+                if (chrome.runtime.lastError) {
+                  console.error("Error injecting script:", chrome.runtime.lastError);
+                  return;
+                }
+                setTimeout(() => sendExplainMessage(retryCount + 1), 100);
+              });
+            }
+          }
+        });
+      });
+    }
+    
+    sendExplainMessage();
   }
 });
 

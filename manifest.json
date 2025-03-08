@@ -1,24 +1,35 @@
 {
   "manifest_version": 3,
-  "name": "AI Search Bar",
+  "name": "WebMind AI Assistant",
   "version": "1.0",
-  "description": "AI Search Bar with voice interaction",
-  "permissions": ["activeTab", "storage", "contextMenus"],
+  "description": "AI Assistant with seamless website interaction and multiple model support",
+  "permissions": ["activeTab", "storage", "contextMenus", "scripting"],
   "action": {
     "default_popup": "popup.html"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["shadow-dom-insertion.js", "content.js"],
-      "css": []
+      "js": [
+        "js/utils.js",
+        "js/shadow-dom.js",
+        "js/dom-fixer.js",
+        "js/text-processing.js",
+        "js/conversation.js",
+        "js/voice-manager.js",
+        "js/api-client.js",
+        "js/ui-manager.js",
+        "js/compatibility.js",
+        "js/content.js"
+      ],
+      "run_at": "document_end"
     }
   ],
   "background": {
     "service_worker": "background.js"
   },
   "web_accessible_resources": [{
-    "resources": ["chat.html", "shadow-dom-insertion.js", "content.css", "popup.css", "fix-shadow-dom.js"],
+    "resources": ["content.css", "popup.css", "assets/icons/*", "fix-shadow-dom.js"],
     "matches": ["<all_urls>"]
   }]
 }
