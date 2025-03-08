@@ -2,7 +2,9 @@
 
 A powerful Chrome extension that brings AI capabilities directly into your browser with seamless website interaction and advanced features.
 
-![WebMind AI Assistant](https://example.com/screenshot.png)
+![screenshot](https://github.com/user-attachments/assets/e5068372-63c2-4750-aaf1-184b475ecc3f)
+![screenshot (1)](https://github.com/user-attachments/assets/f3ba8a3d-b74e-4353-9ed9-991f64b61ffa)
+
 
 ## 🌟 Key Features
 
@@ -25,7 +27,6 @@ A powerful Chrome extension that brings AI capabilities directly into your brows
 
 ### Advanced Interaction
 - **Voice Input**: Click the microphone or say "Hey AI" to speak your queries
-- **Voice Output**: Have responses read back to you naturally
 - **Conversation Mode**: Have multi-turn discussions with context memory
 - **Code Support**: Beautiful code blocks with syntax highlighting and copy function
 
@@ -121,21 +122,3 @@ The extension can be customized through the popup interface:
 - Queries are processed directly through the Groq API
 - Page content analysis is performed locally in your browser
 - No data is stored on external servers beyond what the API requires
-
-## 🚀 Future Features
-
-- Support for even more language models and AI providers
-- Custom styling options
-- PDF document analysis
-- Image recognition capabilities
-- Offline mode with local processing
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-## 📝 Support and Feedback
-
-For support requests or feedback, open an issue on the GitHub repository or contact us at support@webmindai.com
