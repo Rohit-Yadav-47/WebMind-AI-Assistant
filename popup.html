@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Search Bar</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container glass-morphism">
+    <div class="header">
+      <h1>AI Search Bar</h1>
+      <div class="tabs">
+        <button class="tab active" data-tab="settings">Settings</button>
+      </div>
+    </div>
+    
+    <div class="tab-content" id="settings-tab">
+      <p>Press <strong>Ctrl+Q</strong> on any website to activate the AI search bar or select text and right-click to explain.</p>
+      
+      <div class="settings-section">
+        <div class="setting-item">
+          <label for="apiKey">Groq API Key:</label>
+          <input type="password" id="apiKey" placeholder="Enter your Groq API Key">
+        </div>
+        <div class="setting-item">
+          <label for="model">AI Model:</label>
+          <select id="model">
+            <option value="llama-3.1-8b-instant">Llama 3.1 (8B) Instant</option>
+            <option value="llama3-70b-8192">Llama 3 (70B)</option>
+            <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
+     
+            <option value="gemma2-9b-it">Gemma 2 (9B)</option>
+            <option value="deepseek-r1-distill-llama-70b">DeepSeek R1 Distill (70B)</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label for="transparency">UI Transparency:</label>
+          <input type="range" id="transparency" min="0.5" max="1" step="0.05" value="0.9">
+        </div>
+        <button id="saveSettings" class="btn-primary">Save Settings</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

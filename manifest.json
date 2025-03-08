@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "AI Search Bar",
+  "version": "1.0",
+  "description": "AI Search Bar with voice interaction",
+  "permissions": ["activeTab", "storage", "contextMenus"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["shadow-dom-insertion.js", "content.js"],
+      "css": []
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [{
+    "resources": ["chat.html", "shadow-dom-insertion.js", "content.css", "popup.css", "fix-shadow-dom.js"],
+    "matches": ["<all_urls>"]
+  }]
+}

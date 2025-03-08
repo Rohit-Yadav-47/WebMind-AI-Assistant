@@ -1,0 +1,200 @@
+:root {
+  --primary: #0070e0;
+  --primary-hover: #0060c0;
+  --text: #333;
+  --text-light: #777;
+  --background: rgba(255, 255, 255, 0.9);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --border: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.05);
+  --accent: #5856d6;
+  --danger: #e74c3c;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 350px;
+  color: var(--text);
+  background: linear-gradient(135deg, #f7f9fe, #edf1f7);
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+}
+
+.glass-morphism {
+  background: var(--background);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0 0 12px 0;
+  color: var(--text);
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.tab.active {
+  color: var(--primary);
+  font-weight: 500;
+  background: rgba(0, 112, 224, 0.1);
+}
+
+p {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+.settings-section {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+.setting-item {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+input, select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  backdrop-filter: blur(5px);
+  transition: all 0.2s;
+}
+
+input:hover, select:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 112, 224, 0.2);
+}
+
+input[type="range"] {
+  padding: 0;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.btn-danger:hover {
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.tab-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-light);
+  padding: 30px 0;
+  font-size: 14px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #eee;
+    --text-light: #aaa;
+    --background: rgba(30, 30, 30, 0.9);
+    --card-bg: rgba(40, 40, 40, 0.7);
+    --border: rgba(255, 255, 255, 0.1);
+    --shadow: rgba(0, 0, 0, 0.2);
+  }
+  
+  body {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  }
+  
+  input, select {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text);
+  }
+}
