@@ -27,7 +27,6 @@ A powerful Chrome extension that brings AI capabilities directly into your brows
 
 ### Advanced Interaction
 - **Voice Input**: Click the microphone or say "Hey AI" to speak your queries
-- **Voice Output**: Have responses read back to you naturally
 - **Conversation Mode**: Have multi-turn discussions with context memory
 - **Code Support**: Beautiful code blocks with syntax highlighting and copy function
 
