@@ -1,6 +1,7 @@
 # WebMind AI Assistant
 
 A powerful Chrome extension that brings AI capabilities directly into your browser with seamless website interaction and advanced features.
+Ctrl+Q: Open the AI search bar anywhere (main shortcut)
 
 ![screenshot](https://github.com/user-attachments/assets/e5068372-63c2-4750-aaf1-184b475ecc3f)
 ![screenshot (1)](https://github.com/user-attachments/assets/f3ba8a3d-b74e-4353-9ed9-991f64b61ffa)
